@@ -4,7 +4,15 @@ import Select from 'react-select';
 import { keyBy } from 'lodash';
 
 export default props => {
-	const { defaultValue = 'all', editable = false, id, onChange, ...defaultProps } = props;
+	const {
+		defaultValue = 'all',
+		editable = false,
+		headerStyle = {},
+		id,
+		onChange,
+		style = {},
+		...defaultProps
+	} = props;
 
 	const options = [
 		{ label: 'All', value: 'all' },
@@ -15,29 +23,27 @@ export default props => {
 
 	return {
 		...defaultProps,
+		style: { ...style, display: 'flex', alignItems: 'center', justifyContent: 'center' },
+		headerStyle: {
+			...headerStyle,
+			overflow: editable ? 'visible' : 'hidden',
+			display: 'flex',
+			alignItems: 'center'
+		},
 		Cell: ({ original, value }) => {
 			if (editable) {
 				return (
-					<div style={{ textAlign: 'center' }}>
-						<Checkbox
-							checked={value}
-							onChange={e => onChange({ Id: original.Id, [id]: e.target.checked })}
-						/>
-					</div>
+					<Checkbox checked={value} onChange={e => onChange({ Id: original.Id, [id]: e.target.checked })} />
 				);
 			} else {
 				const icon = value ? { symbol: 'check', color: '#55b65c' } : { symbol: 'times', color: '#dc3545' };
-				return (
-					<div style={{ textAlign: 'center' }}>
-						<i class={`fa fa-${icon.symbol}-circle`} style={{ color: `${icon.color}` }} />
-					</div>
-				);
+				return <i class={`fa fa-${icon.symbol}-circle`} style={{ color: `${icon.color}` }} />;
 			}
 		},
 		Filter: ({ filter, onChange }) => {
 			return (
 				<Select
-					isClearable
+					inputId={`${id}-filter`}
 					value={
 						filter
 							? optionsObj[filter.value]
@@ -47,6 +53,7 @@ export default props => {
 					}
 					onChange={e => onChange(e ? (e.value != 'all' ? e.value : '') : '')}
 					options={options}
+					styles={{ container: (provided, state) => ({ ...provided, flex: 1 }) }}
 				/>
 			);
 		}
