@@ -7,11 +7,11 @@
 Using npm:
 
 ```sh
-npm install --save column-boolean
+npm install --save @volenday/column-boolean
 ```
 
 or using yarn:
 
 ```sh
-yarn add column-boolean
+yarn add @volenday/column-boolean
 ```
