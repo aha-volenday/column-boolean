@@ -1,7 +1,7 @@
 import React from 'react';
 import Checkbox from 'rc-checkbox';
 import Select from 'react-select';
-import { keyBy } from 'lodash';
+import keyBy from 'lodash/keyBy';
 
 export default props => {
 	const {
