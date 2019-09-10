@@ -53,11 +53,8 @@ module.exports = {
 		libraryTarget: 'commonjs2'
 	},
 	externals: {
-		react: 'commonjs react',
-		'react-dom': 'commonjs react-dom',
-		'rc-checkbox': 'commonjs rc-checkbox',
-		'react-select': 'commonjs react-select',
-		lodash: 'commonjs lodash'
+		antd: 'commonjs antd',
+		react: 'commonjs react'
 	},
 	plugins: [
 		new webpack.optimize.AggressiveMergingPlugin(),

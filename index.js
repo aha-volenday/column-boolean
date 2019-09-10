@@ -1,7 +1,5 @@
 import React from 'react';
-import Checkbox from 'rc-checkbox';
-import Select from 'react-select';
-import keyBy from 'lodash/keyBy';
+import { Checkbox, Radio } from 'antd';
 
 export default props => {
 	const {
@@ -13,13 +11,6 @@ export default props => {
 		style = {},
 		...defaultProps
 	} = props;
-
-	const options = [
-		{ label: 'All', value: 'all' },
-		{ label: <i class="fa fa-check-circle" style={{ color: '#55b65c' }} />, value: true },
-		{ label: <i class="fa fa-times-circle" style={{ color: '#dc3545' }} />, value: false }
-	];
-	const optionsObj = keyBy(options, 'value');
 
 	return {
 		...defaultProps,
@@ -35,26 +26,24 @@ export default props => {
 				return (
 					<Checkbox checked={value} onChange={e => onChange({ Id: original.Id, [id]: e.target.checked })} />
 				);
-			} else {
-				const icon = value ? { symbol: 'check', color: '#55b65c' } : { symbol: 'times', color: '#dc3545' };
-				return <i class={`fa fa-${icon.symbol}-circle`} style={{ color: `${icon.color}` }} />;
 			}
+
+			const icon = value ? { symbol: 'check', color: '#55b65c' } : { symbol: 'times', color: '#dc3545' };
+			return <i class={`fa fa-${icon.symbol}-circle`} style={{ color: `${icon.color}` }} />;
 		},
 		Filter: ({ filter, onChange }) => {
 			return (
-				<Select
-					inputId={`${id}-filter`}
-					value={
-						filter
-							? optionsObj[filter.value]
-								? optionsObj[filter.value]
-								: optionsObj[defaultValue]
-							: optionsObj[defaultValue]
-					}
-					onChange={e => onChange(e ? (e.value != 'all' ? e.value : '') : '')}
-					options={options}
-					styles={{ container: (provided, state) => ({ ...provided, flex: 1 }) }}
-				/>
+				<Radio.Group
+					onChange={e => onChange(e.target.value)}
+					value={typeof filter != 'undefined' ? filter.value : ''}>
+					<Radio value="">All</Radio>
+					<Radio value={true}>
+						<i class="fa fa-check-circle" style={{ color: '#55b65c' }} />
+					</Radio>
+					<Radio value={false}>
+						<i class="fa fa-times-circle" style={{ color: '#dc3545' }} />
+					</Radio>
+				</Radio.Group>
 			);
 		}
 	};
