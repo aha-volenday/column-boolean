@@ -22,6 +22,8 @@ export default props => {
 			alignItems: 'center'
 		},
 		Cell: ({ original, value }) => {
+			if (typeof value == 'undefined') return null;
+
 			if (editable) {
 				return (
 					<Checkbox checked={value} onChange={e => onChange({ Id: original.Id, [id]: e.target.checked })} />
