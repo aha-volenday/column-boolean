@@ -1,6 +1,6 @@
 {
 	"name": "@volenday/column-boolean",
-	"version": "0.1.3",
+	"version": "0.1.4",
 	"private": false,
 	"license": "MIT",
 	"author": "Volenday <developers@volenday.com>",
@@ -11,7 +11,7 @@
 	},
 	"main": "dist/index.min.js",
 	"dependencies": {
-		"antd": "^3.25.0",
+		"antd": "^4.0.0-alpha.7",
 		"react": "^16.11.0",
 		"react-dom": "^16.11.0"
 	},
