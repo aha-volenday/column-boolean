@@ -46,22 +46,6 @@ module.exports = {
 			}
 		]
 	},
-	optimization: {
-		splitChunks: {
-			chunks: 'all',
-			cacheGroups: {
-				vendors: {
-					test: /[\\/]node_modules[\\/]/,
-					priority: -10
-				},
-				default: {
-					minChunks: 2,
-					priority: -20,
-					reuseExistingChunk: true
-				}
-			}
-		}
-	},
 	output: {
 		path: `${__dirname}/dist/`,
 		filename: '[name].min.js',
@@ -69,8 +53,9 @@ module.exports = {
 		libraryTarget: 'commonjs2'
 	},
 	externals: {
-		antd: 'commonjs antd',
-		react: 'commonjs react'
+		antd: 'antd',
+		react: 'react',
+		'react-dom': 'react-dom'
 	},
 	plugins: [
 		new webpack.optimize.AggressiveMergingPlugin(),
