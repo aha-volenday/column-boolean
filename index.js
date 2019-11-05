@@ -1,17 +1,7 @@
 import React from 'react';
 import { Checkbox, Radio } from 'antd';
 
-export default props => {
-	const {
-		defaultValue = 'all',
-		editable = false,
-		headerStyle = {},
-		id,
-		onChange,
-		style = {},
-		...defaultProps
-	} = props;
-
+export default ({ editable = false, headerStyle = {}, id, onChange, style = {}, ...defaultProps }) => {
 	return {
 		...defaultProps,
 		style: { ...style, display: 'flex', alignItems: 'center', justifyContent: 'center' },

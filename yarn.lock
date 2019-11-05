@@ -1224,10 +1224,10 @@ ansi-styles@^3.2.0, ansi-styles@^3.2.1:
   dependencies:
     color-convert "^1.9.0"
 
-antd@^3.24.3:
-  version "3.24.3"
-  resolved "https://registry.yarnpkg.com/antd/-/antd-3.24.3.tgz#103e31a1a287166566db9ea16450588314367265"
-  integrity sha512-yr4kV8lUdYNCOj5+TjIufLGYF0naTfNiAJV0JWqh9RzRGapGVES928K/2gyF7Ow3da6ZlsgxtO1P25exbvDlSw==
+antd@^3.25.0:
+  version "3.25.0"
+  resolved "https://registry.yarnpkg.com/antd/-/antd-3.25.0.tgz#d1d609038b3d17ddf9dfc1c3e3a9186d1c53849d"
+  integrity sha512-FJH2w59dwMykwzsLcl6IQqLTUwQSU8AUQCkVpIQt5yBIneqQI3V8Xip/zCPBQhAIQ20IbV4uqhUwW6LUsAPcYg==
   dependencies:
     "@ant-design/create-react-context" "^0.2.4"
     "@ant-design/icons" "~2.1.1"
@@ -1274,7 +1274,7 @@ antd@^3.24.3:
     rc-tree "~2.1.0"
     rc-tree-select "~2.9.1"
     rc-trigger "^2.6.2"
-    rc-upload "~2.8.0"
+    rc-upload "~2.9.1"
     rc-util "^4.10.0"
     react-lazy-load "^3.0.13"
     react-lifecycles-compat "^3.0.4"
@@ -1926,10 +1926,10 @@ core-js@^2.4.0:
   resolved "https://registry.yarnpkg.com/core-js/-/core-js-2.6.9.tgz#6b4b214620c834152e179323727fc19741b084f2"
   integrity sha512-HOpZf6eXmnl7la+cUdMnLvUxKNqLUzJvgIziQ0DiF3JwSImNphIqdGqzj6hIKyX04MmV0poclQ7+wjWvxQyR2A==
 
-core-js@^3.3.5:
-  version "3.3.5"
-  resolved "https://registry.yarnpkg.com/core-js/-/core-js-3.3.5.tgz#58d20f48a95a07304b62ff752742b82b56431ed8"
-  integrity sha512-0J3K+Par/ZydhKg8pEiTcK/9d65/nqJOzY62uMkjeBmt05fDOt/khUVjDdh8TpeIuGQDy1yLDDCjiWN/8pFIuw==
+core-js@^3.3.6:
+  version "3.3.6"
+  resolved "https://registry.yarnpkg.com/core-js/-/core-js-3.3.6.tgz#6ad1650323c441f45379e176ed175c0d021eac92"
+  integrity sha512-u4oM8SHwmDuh5mWZdDg9UwNVq5s1uqq6ZDLLIs07VY+VJU91i3h4f3K/pgFvtUQPGdeStrZ+odKyfyt4EnKHfA==
 
 core-util-is@1.0.2, core-util-is@~1.0.0:
   version "1.0.2"
@@ -4773,10 +4773,10 @@ rc-trigger@^3.0.0-rc.2:
     rc-animate "^3.0.0-rc.1"
     rc-util "^4.4.0"
 
-rc-upload@~2.8.0:
-  version "2.8.1"
-  resolved "https://registry.yarnpkg.com/rc-upload/-/rc-upload-2.8.1.tgz#8218eb8c4ed9cfb0340311c2c60525fc31060cb6"
-  integrity sha512-FmKZgWsgOyKeZuperDjHrj8Qx5fdQqYuNpmDR50AP7Za87o8QsRvCbIKG2pgQ9MpNkUbiQOV15FqlQBl2WisfQ==
+rc-upload@~2.9.1:
+  version "2.9.1"
+  resolved "https://registry.yarnpkg.com/rc-upload/-/rc-upload-2.9.1.tgz#2ae60bc36054231bd967b5e1b293398f72222078"
+  integrity sha512-yMepUpgLS41BKkzzC2D14rFogzO1QAVrEgBu3t4ZT2deyo6IDcygz2kgfBGRK9qHVF6kOTW6gzbdXj3v1Bn3oQ==
   dependencies:
     babel-runtime "6.x"
     classnames "^2.2.5"
@@ -5887,10 +5887,10 @@ watchpack@^1.6.0:
     graceful-fs "^4.1.2"
     neo-async "^2.5.0"
 
-webpack-cli@^3.3.9:
-  version "3.3.9"
-  resolved "https://registry.yarnpkg.com/webpack-cli/-/webpack-cli-3.3.9.tgz#79c27e71f94b7fe324d594ab64a8e396b9daa91a"
-  integrity sha512-xwnSxWl8nZtBl/AFJCOn9pG7s5CYUYdZxmmukv+fAHLcBIHM36dImfpQg3WfShZXeArkWlf6QRw24Klcsv8a5A==
+webpack-cli@^3.3.10:
+  version "3.3.10"
+  resolved "https://registry.yarnpkg.com/webpack-cli/-/webpack-cli-3.3.10.tgz#17b279267e9b4fb549023fae170da8e6e766da13"
+  integrity sha512-u1dgND9+MXaEt74sJR4PR7qkPxXUSQ0RXYq8x1L6Jg1MYVEmGPrH6Ah6C4arD4r0J1P5HKjRqpab36k0eIzPqg==
   dependencies:
     chalk "2.4.2"
     cross-spawn "6.0.5"
