@@ -4,11 +4,13 @@ import { Checkbox, Radio } from 'antd';
 export default ({ editable = false, id, onChange, ...defaultProps }) => {
 	return {
 		...defaultProps,
-		Cell: ({ row, value }) => {
+		Cell: ({ row: { original }, value }) => {
 			if (typeof value == 'undefined') return null;
 
 			if (editable)
-				return <Checkbox checked={value} onChange={e => onChange({ Id: row.Id, [id]: e.target.checked })} />;
+				return (
+					<Checkbox checked={value} onChange={e => onChange({ Id: original.Id, [id]: e.target.checked })} />
+				);
 
 			const icon = value ? { symbol: 'check', color: '#55b65c' } : { symbol: 'times', color: '#dc3545' };
 			return <i class={`fa fa-${icon.symbol}-circle`} style={{ color: `${icon.color}` }} />;
