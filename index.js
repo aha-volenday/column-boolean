@@ -28,7 +28,6 @@ const Cell = memo(({ other: { editable, id, onChange }, row: { original }, value
 });
 
 const Filter = memo(({ column: { filterValue, setFilter } }) => {
-	console.log(filterValue);
 	return (
 		<Radio.Group
 			onChange={e => setFilter(e.target.value)}
