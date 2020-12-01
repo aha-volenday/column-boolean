@@ -1,19 +1,23 @@
 import React, { memo, Suspense } from 'react';
 import { Checkbox, Radio, Skeleton } from 'antd';
 
+const browser = typeof process.browser !== 'undefined' ? process.browser : true;
+
 export default ({ editable = false, id, onChange, ...defaultProps }) => {
 	return {
 		...defaultProps,
-		Cell: props => (
-			<Suspense fallback={<Skeleton active={true} paragraph={null} />}>
-				<Cell {...props} other={{ editable, id, onChange }} />
-			</Suspense>
-		),
-		Filter: props => (
-			<Suspense fallback={<Skeleton active={true} paragraph={null} />}>
-				<Filter {...props} />
-			</Suspense>
-		)
+		Cell: props =>
+			browser ? (
+				<Suspense fallback={<Skeleton active={true} paragraph={null} />}>
+					<Cell {...props} other={{ editable, id, onChange }} />
+				</Suspense>
+			) : null,
+		Filter: props =>
+			browser ? (
+				<Suspense fallback={<Skeleton active={true} paragraph={null} />}>
+					<Filter {...props} />
+				</Suspense>
+			) : null
 	};
 };
 
