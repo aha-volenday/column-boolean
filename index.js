@@ -1,9 +1,9 @@
 import React, { memo, Suspense } from 'react';
-import { Checkbox, Radio, Skeleton } from 'antd';
 
 const browser = typeof process.browser !== 'undefined' ? process.browser : true;
 
 export default ({ editable = false, id, onChange, ...defaultProps }) => {
+	const { Skeleton } = require('antd');
 	return {
 		...defaultProps,
 		Cell: props =>
@@ -22,6 +22,7 @@ export default ({ editable = false, id, onChange, ...defaultProps }) => {
 };
 
 const Cell = memo(({ other: { editable, id, onChange }, row: { original }, value }) => {
+	const { Checkbox } = require('antd');
 	if (typeof value === 'undefined') return null;
 
 	if (editable)
@@ -32,6 +33,7 @@ const Cell = memo(({ other: { editable, id, onChange }, row: { original }, value
 });
 
 const Filter = memo(({ column: { filterValue, setFilter } }) => {
+	const { Radio } = require('antd');
 	return (
 		<Radio.Group
 			onChange={e => setFilter(e.target.value)}
