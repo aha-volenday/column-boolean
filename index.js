@@ -1,33 +1,40 @@
 import React, { memo, Suspense } from 'react';
-import { Checkbox, Radio, Skeleton } from 'antd';
+import { Skeleton } from 'antd';
+
+const browser = typeof process.browser !== 'undefined' ? process.browser : true;
 
 export default ({ editable = false, id, onChange, ...defaultProps }) => {
 	return {
 		...defaultProps,
-		Cell: props => (
-			<Suspense fallback={<Skeleton active={true} paragraph={null} />}>
-				<Cell {...props} other={{ editable, id, onChange }} />
-			</Suspense>
-		),
-		Filter: props => (
-			<Suspense fallback={<Skeleton active={true} paragraph={null} />}>
-				<Filter {...props} />
-			</Suspense>
-		)
+		Cell: props =>
+			browser ? (
+				<Suspense fallback={<Skeleton active={true} paragraph={null} />}>
+					<Cell {...props} other={{ editable, id, onChange }} />
+				</Suspense>
+			) : null,
+		Filter: props =>
+			browser ? (
+				<Suspense fallback={<Skeleton active={true} paragraph={null} />}>
+					<Filter {...props} />
+				</Suspense>
+			) : null
 	};
 };
 
 const Cell = memo(({ other: { editable, id, onChange }, row: { original }, value }) => {
 	if (typeof value === 'undefined') return null;
 
-	if (editable)
+	if (editable) {
+		const { Checkbox } = require('antd');
 		return <Checkbox checked={value} onChange={e => onChange({ Id: original.Id, [id]: e.target.checked })} />;
+	}
 
 	const icon = value ? { symbol: 'check', color: '#55b65c' } : { symbol: 'times', color: '#dc3545' };
 	return <i class={`fa fa-${icon.symbol}-circle`} style={{ color: `${icon.color}` }} />;
 });
 
 const Filter = memo(({ column: { filterValue, setFilter } }) => {
+	const { Radio } = require('antd');
 	return (
 		<Radio.Group
 			onChange={e => setFilter(e.target.value)}
