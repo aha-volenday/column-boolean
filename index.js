@@ -1,9 +1,9 @@
 import React, { memo, Suspense } from 'react';
+import { Skeleton } from 'antd';
 
 const browser = typeof process.browser !== 'undefined' ? process.browser : true;
 
 export default ({ editable = false, id, onChange, ...defaultProps }) => {
-	const { Skeleton } = require('antd');
 	return {
 		...defaultProps,
 		Cell: props =>
@@ -22,11 +22,12 @@ export default ({ editable = false, id, onChange, ...defaultProps }) => {
 };
 
 const Cell = memo(({ other: { editable, id, onChange }, row: { original }, value }) => {
-	const { Checkbox } = require('antd');
 	if (typeof value === 'undefined') return null;
 
-	if (editable)
+	if (editable) {
+		const { Checkbox } = require('antd');
 		return <Checkbox checked={value} onChange={e => onChange({ Id: original.Id, [id]: e.target.checked })} />;
+	}
 
 	const icon = value ? { symbol: 'check', color: '#55b65c' } : { symbol: 'times', color: '#dc3545' };
 	return <i class={`fa fa-${icon.symbol}-circle`} style={{ color: `${icon.color}` }} />;
